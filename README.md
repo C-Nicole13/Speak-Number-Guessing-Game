@@ -1,1 +1,0 @@
-# Speak-Number-Guessing-Game

@@ -94,7 +94,7 @@ function checkNumber(msg) {
 
 // Check msg against the secret number
 function checkNumber(msg) {
-  let num = Number(msg);
+  let num;
 
   // Update the value of num if it's a single-digit number
   if (msg === 'one' || msg === 'won') {
@@ -153,6 +153,37 @@ function checkNumber(msg) {
     msg = wordToNumber[msg];
   } // Convert to number after adjustments
 
-  const num = Number(msg);
+  num = Number(msg);
   // Check if the spoken content is a valid number
-  // ... remaining code below this line is unchanged
+  if (Number.isNaN(num)) {
+    const div = document.createElement('div');
+    div.textContent = 'That is not a valid number';
+    msgEl.innerHTML = '';
+    msgEl.append(div);
+    return;
+  }
+
+  if (num < 1 || num > 100) {
+    const div = document.createElement('div');
+    div.textContent = 'Number must be between 1 and 100';
+    msgEl.innerHTML = '';
+    msgEl.append(div);
+    return;
+  }
+
+  msgEl.innerHTML = '';
+  if (num === randomNum) {
+    const h2 = document.createElement('h2');
+    h2.textContent = `Congrats! You have guessed the number! It was ${num}`;
+    const button = document.createElement('button');
+    button.classList.add('play-again');
+    button.id = 'play-again';
+    button.textContent = 'Play Again';
+    button.addEventListener('click', () => window.location.reload());
+    msgEl.append(h2, button);
+  } else {
+    const div = document.createElement('div');
+    div.textContent = num > randomNum ? 'GO LOWER' : 'GO HIGHER';
+    msgEl.append(div);
+  }
+}
