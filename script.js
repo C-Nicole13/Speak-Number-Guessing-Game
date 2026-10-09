@@ -8,8 +8,8 @@ function getRandomNumber() {
 const randomNum = getRandomNumber();
 console.log('Number:', randomNum);
 
-window.SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
+window.SpeechRecognitionEvent =
+  window.SpeechRecognitionEvent || window.webkitSpeechRecognition;
 
 let recognition = new window.SpeechRecognition();
 
@@ -24,4 +24,12 @@ function onSpeak(event) {
 
 // Speak result
 recognition.addEventListener('result', onSpeak);
+
+// Write what user speaks
+function writeMessage(msg) {
+  msgEl.innerHTML = `
+    <div>You said: </div>
+    <span class="box">${msg}</span>
+  `;
+}
 
