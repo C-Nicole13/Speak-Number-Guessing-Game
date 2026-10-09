@@ -8,11 +8,10 @@ function getRandomNumber() {
 const randomNum = getRandomNumber();
 console.log('Number:', randomNum);
 
-// Removed 'Event' and 'ErrorEvent' so it references the correct native web API properties
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// FIX 2: Create a regular SpeechRecognition instance
+// Create a regular SpeechRecognition instance
 let recognition = new window.SpeechRecognition();
 
 // Force the microphone to stay awake between guesses
