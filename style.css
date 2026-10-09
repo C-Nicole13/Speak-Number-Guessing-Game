@@ -5,8 +5,10 @@
 }
 
 body {
-  background: #2f3542 url('img/bg.jpg') no-repeat left center/cover;
-  color: #fff;
+  /* Darkens the background image using a semi-transparent black layer */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('img/bg.jpg') no-repeat left center/cover;
+  color: #bbe1f8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,14 +26,22 @@ h3 {
 .msg {
   font-size: 1.5em;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .box {
-  border: 1px solid #dedede;
-  display: inline-block;
+  border: 2px solid #dedede;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 30px;
   margin: 20px;
-  padding: 10px;
 }
 
 .play-again {
